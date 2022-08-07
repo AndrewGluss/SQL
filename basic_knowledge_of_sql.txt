@@ -220,3 +220,6 @@ SELECT title, author FROM book WHERE author LIKE "%С.%" AND title LIKE "_% _%" 
 SELECT title, author, price*amount AS sale FROM book WHERE author LIKE '%М.' AND price*amount>2500
 /*Отобрать различные (уникальные) элементы столбца amount таблицы book. */
 SELECT amount FROM book GROUP BY author;
+
+/* Посчитать, количество различных книг и количество экземпляров книг каждого автора , хранящихся на складе.  Столбцы назвать Автор, Различных_книг и Количество_экземпляров соответственно. */
+SELECT author AS Автор, COUNT(title) AS Различных_книг, SUM(amount) AS Количество_экземпляров FROM book GROUP BY author;
